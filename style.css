@@ -1,0 +1,747 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #c9a96e;
+    background-image: repeating-linear-gradient(45deg, rgba(210, 180, 140, 0.2) 0px, rgba(210, 180, 140, 0.2) 2px, transparent 2px, transparent 8px);
+    font-family: 'Courier New', monospace;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+/* ========== HALAMAN WELCOME ========== */
+#welcomeScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #c9a96e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.welcome-container {
+    width: 100%;
+    max-width: 550px;
+    padding: 20px;
+}
+
+.welcome-paper {
+    padding: 50px 40px;
+    background: #fef9e8;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05), 0 2px 2px rgba(0, 0, 0, 0.05), 0 4px 4px rgba(0, 0, 0, 0.05), 0 8px 8px rgba(0, 0, 0, 0.05);
+}
+
+.welcome-paper::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 1px dashed #d4b88c;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.tape {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    background: rgba(255, 248, 220, 0.9);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.tape-1 {
+    top: -8px;
+    left: 30px;
+    transform: rotate(-5deg);
+}
+
+.tape-2 {
+    top: -8px;
+    right: 30px;
+    transform: rotate(5deg);
+}
+
+.tape-3 {
+    bottom: -8px;
+    left: 30px;
+    transform: rotate(5deg);
+}
+
+.tape-4 {
+    bottom: -8px;
+    right: 30px;
+    transform: rotate(-5deg);
+}
+
+/* Video Welcome */
+.welcome-video {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.welcome-vid {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid #e8d8b8;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Emoji Welcome */
+.welcome-emoji {
+    font-size: 50px;
+    margin-bottom: 20px;
+    animation: bounce 1s ease infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Teks Welcome */
+.welcome-text p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #b85c4a;
+    margin: 15px 0;
+    font-family: 'Courier New', monospace;
+}
+
+.welcome-text p:nth-child(1) {
+    animation: fadeInUp 0.5s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.welcome-text p:nth-child(2) {
+    animation: fadeInUp 0.5s ease forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+.welcome-text p:nth-child(3) {
+    animation: fadeInUp 0.5s ease forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tombol MULAI */
+#startButton {
+    background: #e8c8a0;
+    color: #5a3a2a;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 40px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 25px;
+    box-shadow: 0 4px 0 #c4a070;
+    transition: all 0.2s;
+    animation: fadeInUp 0.5s ease forwards;
+    animation-delay: 1.4s;
+    opacity: 0;
+}
+
+#startButton:hover {
+    transform: translateY(-2px);
+    background: #f0d0a8;
+}
+
+#startButton:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #c4a070;
+}
+
+/* ========== HALAMAN UTAMA ========== */
+.paper-card {
+    background: #fef9e8;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05), 0 2px 2px rgba(0, 0, 0, 0.05), 0 4px 4px rgba(0, 0, 0, 0.05), 0 8px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.paper-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 1px dashed #d4b88c;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.page {
+    display: none;
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Halaman 1 - lebar normal */
+.page-1 {
+    max-width: 600px;
+}
+
+.page-1 .paper-card {
+    padding: 45px 35px;
+}
+
+/* Halaman 2 - lebar normal */
+.page-2 {
+    max-width: 600px;
+}
+
+.page-2 .paper-card {
+    padding: 45px 35px;
+}
+
+/* Halaman 3 - CARD DIPERLEBAR */
+.page-3 {
+    max-width: 900px;
+}
+
+.page-3 .paper-card {
+    padding: 45px 60px;
+}
+
+/* Halaman 4 - lebar normal */
+.page-4 {
+    max-width: 550px;
+}
+
+.page-4 .paper-card {
+    padding: 40px 30px;
+}
+
+/* Halaman 5 - CARD DIPERLEBAR */
+.page-5 {
+    max-width: 900px;
+}
+
+.page-5 .paper-card {
+    padding: 45px 60px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.paper-title {
+    font-size: 38px;
+    font-weight: 900;
+    color: #b85c4a;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 30px;
+    color: #b85c4a;
+    margin-bottom: 30px;
+}
+
+.big-title {
+    font-size: 34px;
+}
+
+.photo-frame {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.photo-polaroid {
+    background: white;
+    padding: 12px 12px 20px 12px;
+    border: 1px solid #e0d5b5;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    transform: rotate(2deg);
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.photo-polaroid img {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+}
+
+.polaroid-tape {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45px;
+    height: 18px;
+    background: rgba(245, 240, 220, 0.9);
+    border: 1px solid #ddd0b0;
+}
+
+.hint-text {
+    margin: 25px 0 20px 0;
+}
+
+.hint-message {
+    font-size: 15px;
+    font-weight: bold;
+    color: #8b5a2b;
+    background: #fff3cf;
+    padding: 10px 25px;
+    border-radius: 30px;
+    border: 1px solid #e8d5a8;
+    display: inline-block;
+}
+
+.paper-btn {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    margin: 10px 5px;
+    transition: all 0.2s;
+}
+
+.next-btn {
+    background: #e8c8a0;
+    color: #5a3a2a;
+    box-shadow: 0 3px 0 #c4a070;
+}
+
+.back-btn {
+    background: #d4b88c;
+    color: #3a2a1a;
+    box-shadow: 0 3px 0 #b89870;
+}
+
+.paper-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #c4a070;
+}
+
+.button-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+/* Halaman 2 - Grid Foto */
+.memories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin: 35px 0;
+}
+
+.memory-card {
+    background: #fff8ed;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e8d8b8;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.memory-card:hover {
+    transform: scale(1.03);
+}
+
+.photo-small {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.photo-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ========== HALAMAN 3 - MUSIK ========== */
+.music-big-card {
+    padding: 45px 60px;
+}
+
+.music-player-big {
+    background: #fff8ed;
+    border-radius: 25px;
+    padding: 35px 40px;
+    margin: 35px 0;
+    border: 2px solid #e8d8b8;
+}
+
+.music-icon-big {
+    font-size: 60px;
+    margin-bottom: 25px;
+    animation: bounce 1s ease infinite;
+}
+
+.music-title-big {
+    font-weight: bold;
+    color: #b85c4a;
+    font-size: 26px;
+    margin-bottom: 30px;
+    font-family: 'Courier New', monospace;
+}
+
+audio {
+    width: 100%;
+    margin: 25px 0;
+    height: 55px;
+}
+
+.music-buttons-big {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    margin: 30px 0 25px;
+}
+
+.music-control-big {
+    background: #e8c8a0;
+    color: #5a3a2a;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 3px 0 #c4a070;
+    transition: all 0.2s;
+}
+
+.music-control-big:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #c4a070;
+}
+
+.music-note-big {
+    font-size: 18px;
+    color: #a07848;
+    margin-top: 25px;
+    font-style: italic;
+}
+
+/* Halaman 4 */
+.small-card {
+    padding: 40px 30px;
+}
+
+.write-message {
+    margin: 20px 0 30px 0;
+    padding: 18px 25px;
+    background: #fff8ed;
+    border-radius: 60px;
+    border: 2px dashed #d4b88c;
+}
+
+.write-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: #b85c4a;
+    font-style: italic;
+}
+
+.cute-image {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.cute-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid #e8d8b8;
+}
+
+/* Halaman 5 */
+.letter-card {
+    padding: 45px 60px;
+}
+
+.letter-header {
+    text-align: right;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #d4b88c;
+}
+
+.letter-date {
+    font-size: 18px;
+    color: #a07848;
+}
+
+.letter-paper {
+    min-height: auto;
+    margin: 30px 0;
+    padding: 35px;
+    background: #fffef5;
+    border: 1px solid #e8dcb8;
+}
+
+.handwrite {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    line-height: 2;
+    color: #4a3a2a;
+}
+
+.handwrite p {
+    margin: 12px 0;
+}
+
+.handwrite .signature {
+    font-style: italic;
+    color: #b85c4a;
+    text-align: right;
+    font-size: 18px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+
+    .page-3,
+    .page-5 {
+        max-width: 750px;
+    }
+
+    .page-3 .paper-card,
+    .page-5 .paper-card {
+        padding: 40px 45px;
+    }
+
+    .music-big-card {
+        padding: 40px 45px;
+    }
+
+    .letter-card {
+        padding: 40px 45px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .page-3,
+    .page-5 {
+        max-width: 600px;
+    }
+
+    .page-3 .paper-card,
+    .page-5 .paper-card {
+        padding: 35px 30px;
+    }
+
+    .music-big-card {
+        padding: 35px 25px;
+    }
+
+    .letter-card {
+        padding: 35px 30px;
+    }
+
+    .letter-paper {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 550px) {
+    body {
+        padding: 20px;
+    }
+
+    .welcome-paper {
+        padding: 35px 25px;
+    }
+
+    .welcome-text p {
+        font-size: 18px;
+    }
+
+    .welcome-emoji {
+        font-size: 40px;
+    }
+
+    .welcome-vid {
+        width: 140px;
+        height: 140px;
+    }
+
+    #startButton {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
+
+    .page-1,
+    .page-2,
+    .page-3,
+    .page-4,
+    .page-5 {
+        max-width: 500px;
+    }
+
+    .page-1 .paper-card,
+    .page-2 .paper-card,
+    .page-3 .paper-card,
+    .page-5 .paper-card {
+        padding: 30px 20px;
+    }
+
+    .paper-title {
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .photo-polaroid img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .memories-grid {
+        gap: 15px;
+    }
+
+    .memory-card {
+        padding: 10px;
+    }
+
+    .music-player-big {
+        padding: 25px 15px;
+    }
+
+    .music-title-big {
+        font-size: 18px;
+    }
+
+    .music-icon-big {
+        font-size: 45px;
+    }
+
+    .music-control-big {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .music-note-big {
+        font-size: 14px;
+    }
+
+    .write-text {
+        font-size: 16px;
+    }
+
+    .cute-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .handwrite {
+        font-size: 14px;
+    }
+
+    .letter-paper {
+        padding: 20px;
+    }
+
+    .letter-date {
+        font-size: 14px;
+    }
+}
+/* ========== EFEK PARTIKEL JATUH ========== */
+@keyframes floatDown {
+    0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ========== EFEK PARTIKEL MERIAH ========== */
+.falling-particle {
+    filter: drop-shadow(0 0 2px rgba(255,255,255,0.5));
+    animation: floatDown linear forwards;
+}
+
+@keyframes floatDown {
+    0% {
+        transform: translateY(-30px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Efek confetti berkilau */
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
