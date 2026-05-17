@@ -15,6 +15,33 @@ body {
     padding: 30px;
 }
 
+/* ========== ANIMASI ========== */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(200, 160, 120, 0.3); }
+    50% { transform: scale(1.02); box-shadow: 0 0 0 5px rgba(200, 160, 120, 0); }
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
 /* ========== HALAMAN WELCOME ========== */
 #welcomeScreen {
     position: fixed;
@@ -41,7 +68,7 @@ body {
     border-radius: 8px;
     position: relative;
     text-align: center;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05), 0 2px 2px rgba(0, 0, 0, 0.05), 0 4px 4px rgba(0, 0, 0, 0.05), 0 8px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05), 0 2px 2px rgba(0,0,0,0.05), 0 4px 4px rgba(0,0,0,0.05), 0 8px 8px rgba(0,0,0,0.05);
 }
 
 .welcome-paper::before {
@@ -61,35 +88,15 @@ body {
     width: 50px;
     height: 20px;
     background: rgba(255, 248, 220, 0.9);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
     z-index: 10;
 }
 
-.tape-1 {
-    top: -8px;
-    left: 30px;
-    transform: rotate(-5deg);
-}
+.tape-1 { top: -8px; left: 30px; transform: rotate(-5deg); }
+.tape-2 { top: -8px; right: 30px; transform: rotate(5deg); }
+.tape-3 { bottom: -8px; left: 30px; transform: rotate(5deg); }
+.tape-4 { bottom: -8px; right: 30px; transform: rotate(-5deg); }
 
-.tape-2 {
-    top: -8px;
-    right: 30px;
-    transform: rotate(5deg);
-}
-
-.tape-3 {
-    bottom: -8px;
-    left: 30px;
-    transform: rotate(5deg);
-}
-
-.tape-4 {
-    bottom: -8px;
-    right: 30px;
-    transform: rotate(-5deg);
-}
-
-/* Video Welcome */
 .welcome-video {
     margin-bottom: 20px;
     display: flex;
@@ -102,29 +109,15 @@ body {
     object-fit: cover;
     border-radius: 20px;
     border: 3px solid #e8d8b8;
-    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 6px 6px 12px rgba(0,0,0,0.1);
 }
 
-/* Emoji Welcome */
 .welcome-emoji {
     font-size: 50px;
     margin-bottom: 20px;
     animation: bounce 1s ease infinite;
 }
 
-@keyframes bounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-/* Teks Welcome */
 .welcome-text p {
     font-size: 22px;
     font-weight: bold;
@@ -151,19 +144,6 @@ body {
     opacity: 0;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Tombol MULAI */
 #startButton {
     background: #e8c8a0;
     color: #5a3a2a;
@@ -197,7 +177,7 @@ body {
     background: #fef9e8;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05), 0 2px 2px rgba(0, 0, 0, 0.05), 0 4px 4px rgba(0, 0, 0, 0.05), 0 8px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05), 0 2px 2px rgba(0,0,0,0.05), 0 4px 4px rgba(0,0,0,0.05), 0 8px 8px rgba(0,0,0,0.05);
     position: relative;
 }
 
@@ -224,61 +204,24 @@ body {
 }
 
 /* Halaman 1 - lebar normal */
-.page-1 {
-    max-width: 600px;
-}
-
-.page-1 .paper-card {
-    padding: 45px 35px;
-}
+.page-1 { max-width: 600px; }
+.page-1 .paper-card { padding: 45px 35px; }
 
 /* Halaman 2 - lebar normal */
-.page-2 {
-    max-width: 600px;
-}
-
-.page-2 .paper-card {
-    padding: 45px 35px;
-}
+.page-2 { max-width: 600px; }
+.page-2 .paper-card { padding: 45px 35px; }
 
 /* Halaman 3 - CARD DIPERLEBAR */
-.page-3 {
-    max-width: 900px;
-}
-
-.page-3 .paper-card {
-    padding: 45px 60px;
-}
+.page-3 { max-width: 900px; }
+.page-3 .paper-card { padding: 45px 60px; }
 
 /* Halaman 4 - lebar normal */
-.page-4 {
-    max-width: 550px;
-}
-
-.page-4 .paper-card {
-    padding: 40px 30px;
-}
+.page-4 { max-width: 550px; }
+.page-4 .paper-card { padding: 40px 30px; }
 
 /* Halaman 5 - CARD DIPERLEBAR */
-.page-5 {
-    max-width: 900px;
-}
-
-.page-5 .paper-card {
-    padding: 45px 60px;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+.page-5 { max-width: 900px; }
+.page-5 .paper-card { padding: 45px 60px; }
 
 .paper-title {
     font-size: 38px;
@@ -307,10 +250,14 @@ body {
     background: white;
     padding: 12px 12px 20px 12px;
     border: 1px solid #e0d5b5;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.1);
     transform: rotate(2deg);
     transition: transform 0.3s;
     position: relative;
+}
+
+.photo-polaroid:hover {
+    transform: rotate(0deg) scale(1.02);
 }
 
 .photo-polaroid img {
@@ -343,6 +290,7 @@ body {
     border-radius: 30px;
     border: 1px solid #e8d5a8;
     display: inline-block;
+    animation: pulse 1.5s ease infinite;
 }
 
 .paper-btn {
@@ -416,7 +364,7 @@ body {
     object-fit: cover;
 }
 
-/* ========== HALAMAN 3 - MUSIK ========== */
+/* Halaman 3 - MUSIK */
 .music-big-card {
     padding: 45px 60px;
 }
@@ -493,6 +441,12 @@ audio {
     background: #fff8ed;
     border-radius: 60px;
     border: 2px dashed #d4b88c;
+    animation: pulse 2s ease infinite;
+}
+
+.write-icon {
+    animation: wiggle 1s ease infinite;
+    display: inline-block;
 }
 
 .write-text {
@@ -514,6 +468,11 @@ audio {
     object-fit: cover;
     border-radius: 20px;
     border: 3px solid #e8d8b8;
+    transition: transform 0.3s;
+}
+
+.cute-photo:hover {
+    transform: scale(1.05);
 }
 
 /* Halaman 5 */
@@ -559,189 +518,49 @@ audio {
     font-size: 18px;
 }
 
-/* ========== RESPONSIVE ========== */
+/* Responsive */
 @media (max-width: 900px) {
-
-    .page-3,
-    .page-5 {
-        max-width: 750px;
-    }
-
-    .page-3 .paper-card,
-    .page-5 .paper-card {
-        padding: 40px 45px;
-    }
-
-    .music-big-card {
-        padding: 40px 45px;
-    }
-
-    .letter-card {
-        padding: 40px 45px;
-    }
+    .page-3, .page-5 { max-width: 750px; }
+    .page-3 .paper-card, .page-5 .paper-card { padding: 40px 45px; }
+    .music-big-card { padding: 40px 45px; }
+    .letter-card { padding: 40px 45px; }
 }
 
 @media (max-width: 700px) {
-
-    .page-3,
-    .page-5 {
-        max-width: 600px;
-    }
-
-    .page-3 .paper-card,
-    .page-5 .paper-card {
-        padding: 35px 30px;
-    }
-
-    .music-big-card {
-        padding: 35px 25px;
-    }
-
-    .letter-card {
-        padding: 35px 30px;
-    }
-
-    .letter-paper {
-        padding: 25px;
-    }
+    .page-3, .page-5 { max-width: 600px; }
+    .page-3 .paper-card, .page-5 .paper-card { padding: 35px 30px; }
+    .music-big-card { padding: 35px 25px; }
+    .letter-card { padding: 35px 30px; }
+    .letter-paper { padding: 25px; }
 }
 
 @media (max-width: 550px) {
-    body {
-        padding: 20px;
-    }
-
-    .welcome-paper {
-        padding: 35px 25px;
-    }
-
-    .welcome-text p {
-        font-size: 18px;
-    }
-
-    .welcome-emoji {
-        font-size: 40px;
-    }
-
-    .welcome-vid {
-        width: 140px;
-        height: 140px;
-    }
-
-    #startButton {
-        font-size: 16px;
-        padding: 12px 30px;
-    }
-
-    .page-1,
-    .page-2,
-    .page-3,
-    .page-4,
-    .page-5 {
-        max-width: 500px;
-    }
-
-    .page-1 .paper-card,
-    .page-2 .paper-card,
-    .page-3 .paper-card,
-    .page-5 .paper-card {
-        padding: 30px 20px;
-    }
-
-    .paper-title {
-        font-size: 28px;
-    }
-
-    .section-title {
-        font-size: 24px;
-    }
-
-    .photo-polaroid img {
-        width: 180px;
-        height: 180px;
-    }
-
-    .memories-grid {
-        gap: 15px;
-    }
-
-    .memory-card {
-        padding: 10px;
-    }
-
-    .music-player-big {
-        padding: 25px 15px;
-    }
-
-    .music-title-big {
-        font-size: 18px;
-    }
-
-    .music-icon-big {
-        font-size: 45px;
-    }
-
-    .music-control-big {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
-
-    .music-note-big {
-        font-size: 14px;
-    }
-
-    .write-text {
-        font-size: 16px;
-    }
-
-    .cute-photo {
-        width: 150px;
-        height: 150px;
-    }
-
-    .handwrite {
-        font-size: 14px;
-    }
-
-    .letter-paper {
-        padding: 20px;
-    }
-
-    .letter-date {
-        font-size: 14px;
-    }
-}
-/* ========== EFEK PARTIKEL JATUH ========== */
-@keyframes floatDown {
-    0% {
-        transform: translateY(-30px) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-/* ========== EFEK PARTIKEL MERIAH ========== */
-.falling-particle {
-    filter: drop-shadow(0 0 2px rgba(255,255,255,0.5));
-    animation: floatDown linear forwards;
-}
-
-@keyframes floatDown {
-    0% {
-        transform: translateY(-30px);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-}
-
-/* Efek confetti berkilau */
-@keyframes twinkle {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+    body { padding: 20px; }
+    
+    .welcome-paper { padding: 35px 25px; }
+    .welcome-text p { font-size: 18px; }
+    .welcome-emoji { font-size: 40px; }
+    .welcome-vid { width: 140px; height: 140px; }
+    #startButton { font-size: 16px; padding: 12px 30px; }
+    
+    .page-1, .page-2, .page-3, .page-4, .page-5 { max-width: 500px; }
+    .page-1 .paper-card, .page-2 .paper-card, .page-3 .paper-card, .page-5 .paper-card { padding: 30px 20px; }
+    
+    .paper-title { font-size: 28px; }
+    .section-title { font-size: 24px; }
+    .photo-polaroid img { width: 180px; height: 180px; }
+    .memories-grid { gap: 15px; }
+    .memory-card { padding: 10px; }
+    
+    .music-player-big { padding: 25px 15px; }
+    .music-title-big { font-size: 18px; }
+    .music-icon-big { font-size: 45px; }
+    .music-control-big { padding: 10px 20px; font-size: 16px; }
+    .music-note-big { font-size: 14px; }
+    
+    .write-text { font-size: 16px; }
+    .cute-photo { width: 150px; height: 150px; }
+    .handwrite { font-size: 14px; }
+    .letter-paper { padding: 20px; }
+    .letter-date { font-size: 14px; }
 }
